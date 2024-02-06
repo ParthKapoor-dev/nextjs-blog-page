@@ -1,4 +1,5 @@
 import { prisma } from "@/prisma/db";
+import Link from "next/link";
 
 import { handleExplorePage } from "./actions/routes";
 import { handleDeleteData } from "./actions/crud";
@@ -40,12 +41,12 @@ export default async function App() {
 function Entry({ item }) {
   "use client";
 
-  const DeleteDataAction = handleDeleteData.bind(null, item.id)
+  const DeleteDataAction = handleDeleteData.bind(null, item.id);
 
   return (
     <form action={DeleteDataAction} className="w-[40vw] border-2 border-slate-400 rounded py-2 px-4 flex justify-between mb-2 gap-2">
       <div>
-        <p className="text-lg font-semibold mb-2">{item.userName} - {item.email}</p>
+        <Link href={"/user/"+item.userName} className="text-lg font-semibold mb-2">{item.userName} - {item.email}</Link>
         <p>{item.description}</p>
       </div>
       <button type="submit" className="border-2 border-red-600 text-red-600 flex justify-center items-center h-fit p-2 rounded cursor-pointer hover:bg-red-600 hover:text-white hover:rounded-xl duration-500">
