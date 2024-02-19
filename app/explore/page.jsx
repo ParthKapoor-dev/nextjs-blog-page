@@ -23,9 +23,6 @@ export default function ExploreMore() {
     if (event.key == 'Enter' && ctrlPressed ) {
       router.push('/');
     }
-    if (event.key == '/' && ctrlPressed) {
-      router.push('new-info')
-    }
   }
   return (
     <div className="text-2xl font-bold flex flex-col py-4 items-center focus:outline-none h-[100vh]" ref={divRef} onKeyDown={handleKeyDown} tabIndex={0}>
@@ -34,10 +31,6 @@ export default function ExploreMore() {
       <div className="text-base font-normal p-2 w-[30vw] border-2 rounded flex justify-center mt-4 cursor-pointer" onClick={()=>router.push('/')}>
         Press Ctrl + Enter will return to the Home Page
       </div>
-
-      <div className="text-base font-normal p-2 w-[30vw] border-2 rounded flex justify-center mt-4 cursor-pointer" onClick={()=>router.push('/new-info')}>
-        Press Ctrl + / to add new data to  Home Page
-      </div>
-    </div>
+   </div>
   )
 }

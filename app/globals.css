@@ -3,9 +3,11 @@
 @tailwind utilities;
 
 
-input , textarea{
-  @apply border-2 rounded w-[30vw] mb-2 px-2 py-1 text-lg focus:outline-none 
+input,
+textarea {
+  @apply border-2 rounded w-[30vw] mb-2 px-2 py-1 text-lg focus:outline-none
 }
-label{
+
+label {
   @apply text-slate-600 text-base
 }

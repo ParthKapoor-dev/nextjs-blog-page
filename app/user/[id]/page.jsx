@@ -1,10 +1,10 @@
 import { prisma } from "@/prisma/db";
 
-export default async function App({params}) {
+export default async function App({ params }) {
 
   const data = await prisma.user.findFirst({
     where: {
-      userName : params.id
+      id: params.id
     }
   })
 
@@ -16,9 +16,8 @@ export default async function App({params}) {
 
   return (
     <div>
-      <p>{data.userName}</p>
+      <p>{data.name}</p>
       <p>{data.email}</p>
-      <p>{data.description}</p>
 
     </div>
   )
@@ -28,5 +27,5 @@ export default async function App({params}) {
 export async function generateStaticParams() {
   const userData = await prisma.user.findMany({});
 
-  return userData.map(item=>({ id : item.userName}))
+  return userData.map(item => ({ id: item.userName }))
 }
