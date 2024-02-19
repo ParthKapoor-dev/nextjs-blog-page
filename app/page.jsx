@@ -8,7 +8,11 @@ import { Button } from "@nextui-org/react";
 
 export default async function App() {
   "use server" // server Action in a server component
-  const data = await prisma.post.findMany({});
+  const data = await prisma.post.findMany({
+    include: {
+      user: { select: { name: true, email: true } }
+    }
+  });
   return (
     <div className="flex flex-col justify-center items-center">
 
@@ -41,13 +45,11 @@ function Entry({ item }) {
 
   const DeleteDataAction = handleDeleteData.bind(null, item.id);
 
-  console.log(item)
-
   return (
     <form action={DeleteDataAction} className="w-[40vw] border-2 border-slate-400 rounded py-2 px-4 flex justify-between mb-2 gap-2">
       <div>
         <Link href={"/posts/" + item.id} className="text-lg font-semibold mb-2">
-          {item.title}
+          {item.title} - by {item.user.name}
         </Link>
         <p>
           {item.description}

@@ -3,8 +3,8 @@ import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import NextAuth from "next-auth"
 
-const google_client_id = process.env.GOOGLE_CLIENT_ID || "774547425655-msi9cs4c60gt0kkvo73fsad4svba4gfv.apps.googleusercontent.com";
-const google_client_secret = process.env.GOOGLE_CLIENT_SECRET || "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"
+const google_client_id = process.env.GOOGLE_CLIENT_ID
+const google_client_secret = process.env.GOOGLE_CLIENT_SECRET
 
 if (!google_client_id || !google_client_secret) {
   console.log(google_client_id);
