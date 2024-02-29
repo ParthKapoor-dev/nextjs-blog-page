@@ -1,10 +1,12 @@
 import { prisma } from "@/prisma/db";
-import Link from "next/link";
 
 import { handleExplorePage } from "./actions/routes";
 import { handleDeleteData } from "./actions/crud";
 import { Button } from "@nextui-org/react";
+import HomePagePost from "./components/HomePagePosts";
 
+// Create a comments section for each post
+// And Comments can reply to other comments
 
 export default async function App() {
   "use server" // server Action in a server component
@@ -28,7 +30,7 @@ export default async function App() {
 
       {data.length !== 0 ? (
         data.map(item => (
-          <Entry item={item} key={item.id} />
+          <HomePagePost item={item} key={item.id} />
         ))
       ) : (
         <div>
@@ -39,26 +41,3 @@ export default async function App() {
   )
 }
 
-
-function Entry({ item }) {
-  "use client";
-
-  const DeleteDataAction = handleDeleteData.bind(null, item.id);
-
-  return (
-    <form action={DeleteDataAction} className="w-[40vw] border-2 border-slate-400 rounded py-2 px-4 flex justify-between mb-2 gap-2">
-      <div>
-        <Link href={"/posts/" + item.id} className="text-lg font-semibold mb-2">
-          {item.title} - by {item.user.name}
-        </Link>
-        <p>
-          {item.description}
-        </p>
-      </div>
-      <button type="submit" className="border-2 border-red-600 text-red-600 flex justify-center items-center h-fit p-2 rounded cursor-pointer hover:bg-red-600 hover:text-white hover:rounded-xl duration-500">
-        delete
-      </button>
-
-    </form>
-  )
-}

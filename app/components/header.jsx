@@ -6,6 +6,7 @@ export default function Header() {
 
   return (
     <div className="flex justify-between px-4 py-2 text-lg">
+
       <div className="flex gap-20 ">
         <Link href="/" className="border-2 border-white px-2 rounded hover:border-black hover:bg-black hover:text-white duration-200">
           Home
@@ -16,7 +17,6 @@ export default function Header() {
       </div>
 
       <UserAuthentication />
-
 
     </div>
   )
