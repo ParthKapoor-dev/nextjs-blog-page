@@ -26,10 +26,12 @@ export default function Comment({ item, post }) {
 
 
   return (
-    <div>
-      {item.comment}
+    <div className="w-full border-2 border-slate-500 rounded px-6 py-4">
+      <p className="text-xl ">
+        {item.comment}
+      </p>
       <div >
-        <input type="checkbox" id={item.id} onChange={handleReplyChange} />
+        <input type="checkbox" id={item.id} onChange={handleReplyChange} className="hidden" />
         <label htmlFor={item.id}>Reply</label>
 
         {show && (
@@ -40,7 +42,9 @@ export default function Comment({ item, post }) {
       {(childComments?.length !== 0) &&
         (
           <div>
-            Prev Comments
+            <p className="text-base text-slate-600">
+              Replied Comments :
+            </p>
             <ShowComments comments={childComments} post={post} />
           </div>
         )}

@@ -4,16 +4,17 @@ import ShowComments from "./ShowComments";
 export default function CommentSection({ post, comments }) {
 
   return (
-    <div>
-      <div>
+    <div className="w-full">
+      <div className="font-semibold text-2xl">
         Comments Section
       </div>
       <div>
-        Write Comments
         <AddComments post={post} parentId={'0'} />
       </div>
       <div>
-        Comments
+        <p className="text-xl font-semibold mb-4">
+          Comments
+        </p>
         <ShowComments comments={comments} post={post} />
       </div>
     </div>

@@ -15,11 +15,11 @@ export default function AddComments({ parentId, post }) {
   console.log(formState);
 
   return (
-    <form className="flex flex-col" action={createCommentAction} >
-      <p>
-        reply
+    <form className="flex flex-col my-6 py-2 px-4 border-2 text-lg" action={createCommentAction} >
+      <p className="text-xl ">
+        Reply 
       </p>
-      <input type="text" name="comment" required="true" />
+      <input type="text" name="comment" required="true" className="w-full mt-2" />
       <FormButton name="Add Comment" />
       {(formState && formState?.message !== "") && (
         <>
