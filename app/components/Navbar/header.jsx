@@ -1,5 +1,5 @@
 import Link from "next/link";
-import UserAuthentication from "./UserAuthentication";
+import UserAuthentication from "../UserAuthentication";
 
 export default function Header() {
   // we used a different component for UserAuthentication , so that the entire header component doesn't becomes a client component.
@@ -11,7 +11,7 @@ export default function Header() {
         <Link href="/" className="border-2 border-white px-2 rounded hover:border-black hover:bg-black hover:text-white duration-200">
           Home
         </Link>
-        <Link href='/post/new' className="border-2 border-white px-2 rounded hover:border-black hover:bg-black hover:text-white duration-200">
+        <Link href='/post/new' className="btn">
           Create New Post
         </Link>
       </div>

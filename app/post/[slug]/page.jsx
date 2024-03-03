@@ -1,13 +1,14 @@
 import { prisma } from "@/prisma/db"
 import PostPageError from "./PostPageError";
+import CommentSection from "@/app/components/Comments/Section";
 
 export default async function Post({ params }) {
 
   const postId = parseInt(params.slug);
 
-  if (isNaN(postId)) 
-  return <PostPageError/>
-    
+  if (isNaN(postId))
+    return <PostPageError />
+
   const post = await prisma.post.findFirst({
     where: {
       id: params.slug
@@ -15,17 +16,24 @@ export default async function Post({ params }) {
     include: {
       user: {
         select: {
-          name: true, 
-          email : true
+          name: true,
+          email: true
         }
       }
     }
   });
 
-  if (!post) {
-  return <PostPageError/> 
+  const comments = await prisma.comment.findMany({
+    where: {
+      postId: params.slug,
+      parentId : '0'
+    }
+  });
+
+  if (!post || !comments) {
+    return <PostPageError />
   }
-  
+
   return (
     <div className=" flex justify-center items-center flex-col text-lg ">
       <div className="font-semibold">
@@ -35,14 +43,7 @@ export default async function Post({ params }) {
         {post.description}
       </div>
 
-      <div>
-        <div>
-          Comments Section
-        </div>
-        <div>
-          Write Comments
-        </div>
-      </div>
+      <CommentSection post={post} comments={comments} />
     </div>
   )
 }

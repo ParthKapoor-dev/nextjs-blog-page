@@ -29,7 +29,7 @@ export default function Entry({ item }) {
           {item.description}
         </p>
       </div>
-      <button type="submit" className="border-2 border-red-600 text-red-600 flex justify-center items-center h-fit p-2 rounded cursor-pointer hover:bg-red-600 hover:text-white hover:rounded-xl duration-500">
+      <button type="submit" className="delete-btn">
         delete
       </button>
 
