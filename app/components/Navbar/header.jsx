@@ -9,10 +9,13 @@ export default function Header() {
 
       <div className="flex gap-20 ">
         <Link href="/" className="border-2 border-white px-2 rounded hover:border-black hover:bg-black hover:text-white duration-200">
-          Home
+          Explore
         </Link>
         <Link href='/post/new' className="btn">
           Create New Post
+        </Link>
+        <Link href={'/home'} className="btn">
+          Home
         </Link>
       </div>
 

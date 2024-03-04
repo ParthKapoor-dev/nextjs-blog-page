@@ -15,6 +15,7 @@ export default async function App() {
       user: { select: { name: true, email: true } }
     }
   });
+
   return (
     <div className="flex flex-col justify-center items-center">
 

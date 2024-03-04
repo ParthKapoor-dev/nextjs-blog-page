@@ -26,7 +26,7 @@ export default function Entry({ item }) {
           {item.title} - by {item.user.name}
         </Link>
         <p>
-          {item.description}
+          {item.description.split('').slice(0, 120)}...
         </p>
       </div>
       <button type="submit" className="delete-btn">
