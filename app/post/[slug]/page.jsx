@@ -23,12 +23,20 @@ export default async function Post({ params }) {
     }
   });
 
+  // const comments = await prisma.comment.findMany({
+  //   where: {
+  //     postId: params.slug,
+  //     parentId: '0'
+  //   }
+  // });
+
   const comments = await prisma.comment.findMany({
     where: {
-      postId: params.slug,
-      parentId: '0'
+      postId : params.slug
     }
   });
+
+  // const DisplayComments = comments.filter(item => item.parentId !== '0');
 
   if (!post || !comments) {
     return <PostPageError />
@@ -46,7 +54,7 @@ export default async function Post({ params }) {
         {post.description}
       </div>
 
-      <CommentSection post={post} comments={comments} />
+      <CommentSection post={post} comments={comments} parentId={'0'} />
     </div>
   )
 }

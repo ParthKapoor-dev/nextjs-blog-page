@@ -6,12 +6,20 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 export async function handleDeleteData(id, formData) {
-  "use server";
-  const deleteUserEntry = await prisma.post.delete({
+
+  const deletePostComments = await prisma.comment.deleteMany({
+    where: {
+      postId: id
+    }
+  })
+
+  const deletePost = await prisma.post.delete({
     where: {
       id
     }
-  })
+  });
+
+
   revalidatePath('/');
   redirect('/')
 }

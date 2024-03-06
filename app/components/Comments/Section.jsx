@@ -9,13 +9,13 @@ export default function CommentSection({ post, comments }) {
         Comments Section
       </div>
       <div>
-        <AddComments post={post} parentId={'0'} />
+        <AddComments post={post}  />
       </div>
       <div>
         <p className="text-xl font-semibold mb-4">
           Comments
         </p>
-        <ShowComments comments={comments} post={post} />
+        <ShowComments comments={comments} post={post} parentId={'0'} />
       </div>
     </div>
   )

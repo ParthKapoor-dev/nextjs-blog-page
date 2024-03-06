@@ -5,25 +5,13 @@ import AddComments from "./AddComment";
 import getChildComments from "@/app/actions/Comment/get-child-comments";
 import ShowComments from "./ShowComments";
 
-export default function Comment({ item, post }) {
-
-  useEffect(() => {
-
-    async function serverAction() {
-      const data = await getChildComments(item.id);
-      setcomments(data);
-      console.log('server action for child comments');
-      console.log(data);
-    }
-    serverAction();
-  }, [])
+export default function Comment({ item, post, comments }) {
 
   const [show, setShow] = useState(false);
-  const [childComments, setcomments] = useState([])
+
   function handleReplyChange() {
     setShow(prev => !prev);
   }
-
 
   return (
     <div className="w-full border-2 border-slate-500 rounded px-6 py-4">
@@ -39,13 +27,13 @@ export default function Comment({ item, post }) {
         )}
       </div>
 
-      {(childComments?.length !== 0) &&
+      {(comments?.some((comment) => comment.parentId == item.id)) &&
         (
           <div>
             <p className="text-base text-slate-600">
               Replied Comments :
             </p>
-            <ShowComments comments={childComments} post={post} />
+            <ShowComments comments={comments} parentId={item.id} post={post} />
           </div>
         )}
     </div>

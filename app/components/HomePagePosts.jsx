@@ -18,9 +18,6 @@ export default function Entry({ item }) {
   return (
     <form action={DeleteDataAction} className="w-[40vw] border-2 border-slate-400 rounded py-2 px-4 flex justify-between mb-2 gap-2">
       <div>
-        {/* <div onClick={handlePostPage} className="text-lg font-semibold mb-2">
-          {item.title} - by {item.user.name}
-        </div> */}
 
         <Link href={'/post/' + item.id} className="text-lg font-semibold mb-2">
           {item.title} - by {item.user.name}
