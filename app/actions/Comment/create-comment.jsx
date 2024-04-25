@@ -8,9 +8,6 @@ import { revalidatePath } from "next/cache";
 export default async function handleCreateComment(postId, parentId, formState, formData) {
 
   const session = await auth();
-  console.log(formData);
-  console.log(postId);
-  console.log(formState);
 
   try {
 
@@ -23,16 +20,13 @@ export default async function handleCreateComment(postId, parentId, formState, f
     const data = {
       comment: formData.get('comment'),
       userId: session.user.id,
-      postId
+      postId,
+      parentId
     };
-
-    if (parentId) data.parentId = parentId;
 
     const comment = await prisma.comment.create({
       data
     });
-
-    console.log(comment);
 
     if (!comment)
       throw Error("Comment is not created");

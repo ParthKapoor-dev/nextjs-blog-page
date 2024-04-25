@@ -24,7 +24,7 @@ export default async function App({ params }) {
 }
 
 // Caching Dynamic Page
-export async function generateStaticParams() {
+export async function taticParams() {
   const userData = await prisma.user.findMany({});
 
   return userData.map(item => ({ id: item.userName }))

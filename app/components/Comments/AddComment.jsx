@@ -6,7 +6,7 @@ import FormButton from "../Buttons/FormButtons";
 
 export default function AddComments({ parentId, post }) {
 
-  if (parentId == undefined) parentId = null;
+  if (parentId == undefined) parentId = '0';
 
   const [formState, createCommentAction] = useFormState(handleCreateComment.bind(null, post.id, parentId), {
     message: ""

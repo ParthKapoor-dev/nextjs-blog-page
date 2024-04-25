@@ -7,8 +7,6 @@ const google_client_id = process.env.GOOGLE_CLIENT_ID
 const google_client_secret = process.env.GOOGLE_CLIENT_SECRET
 
 if (!google_client_id || !google_client_secret) {
-  console.log(google_client_id);
-  console.log(google_client_secret)
   throw Error("Undefined Google Client Id or Secret");
 }
 
