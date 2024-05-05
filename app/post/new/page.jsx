@@ -2,17 +2,20 @@
 
 import { useFormState } from "react-dom";
 import createPostAction from "@/app/actions/Post/create-post";
+import PublishButton from "./publishButton";
 
 export default function NewPost() {
 
   const [formstate, formAction] = useFormState(createPostAction, {
     message: ""
-  })
+  });
+
+  // const [ disabled , setDisabled ] = useState(false)
 
   return (
     <form className="flex flex-col gap-[2px] justify-items-center items-center" action={formAction}>
 
-      <p className="text-2xl mb-8">
+      <p className="text-2xl mb-8 max-md:text-lg max-md:mb-6">
         Publish a new Post here
       </p>
 
@@ -23,9 +26,7 @@ export default function NewPost() {
       <label htmlFor="post-description">Express your feeling here</label>
       <textarea type="text" name='post-desc' id="post-description" className="h-60" />
 
-      <button type="submit" className="border-2 border-slate-400 mt-4 w-[30vw] py-2 rounded hover:bg-slate-400 duration-100">
-        Publish
-      </button>
+      <PublishButton />
 
       {
         formstate.message !== "" && (

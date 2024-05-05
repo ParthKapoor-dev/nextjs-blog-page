@@ -27,6 +27,14 @@ export default async function Post({ params }) {
   const comments = await prisma.comment.findMany({
     where: {
       postId : params.slug
+    },
+    include: {
+      user: {
+        select: {
+          name: true,
+          email : true
+        }
+      }
     }
   });
 
@@ -35,10 +43,10 @@ export default async function Post({ params }) {
   }
 
   return (
-    <div className="flex items-center flex-col text-lg px-[25vw] w-full my-8">
-      <div className="font-semibold text-4xl">
+    <div className="flex items-center flex-col text-lg px-[25vw] max-md:px-[6vw] w-full my-8">
+      <div className="font-semibold text-4xl max-md:text-2xl">
         {post.title}
-        <div className="mt-4 text-lg ">
+        <div className="mt-4 text-lg max-md:text-base">
           Author : {post.user.name}
         </div>
       </div>

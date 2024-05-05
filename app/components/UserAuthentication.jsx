@@ -12,7 +12,7 @@ export default function UserAuthentication() {
   return (
     <>
       {userSession ? (
-        <Link href="/auth/login" className="cursor-pointer ">
+        <Link href="/auth/login" className="cursor-pointer px-2">
           {userSession.name}
         </Link>
       ) : (

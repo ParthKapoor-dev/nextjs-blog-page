@@ -19,7 +19,7 @@ export default async function App() {
   return (
     <div className="flex flex-col justify-center items-center">
 
-      <p className="text-2xl font-bold ">Welcome to the Home Page</p>
+      <p className="text-2xl font-bold max-md:text-lg max-md:font-semibold ">Welcome to the Home Page</p>
 
       <form action={handleExplorePage} className="flex flex-col ">
 

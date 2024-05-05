@@ -18,6 +18,9 @@ export default function Comment({ item, post, comments }) {
       <p className="text-xl ">
         {item.comment}
       </p>
+      <p className="font-semibold">
+        {item.user.name.split(' ')[0]}
+      </p>
       <div >
         <input type="checkbox" id={item.id} onChange={handleReplyChange} className="hidden" />
         <label htmlFor={item.id}>Reply</label>
