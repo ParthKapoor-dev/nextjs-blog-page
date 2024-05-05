@@ -18,7 +18,7 @@ export default function Comment({ item, post, comments }) {
       <p className="text-xl max-md:text-base ">
         {item.comment}
       </p>
-      <p className="font-semibold">
+      <p className="font-semibold max-md:text-base">
         {item.user.name.split(' ')[0]}
       </p>
       <div >
