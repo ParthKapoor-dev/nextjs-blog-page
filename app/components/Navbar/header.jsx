@@ -20,7 +20,7 @@ export default function Header() {
     <>
       <div className="flex justify-between px-4 py-2 text-lg max-md:responsive-navbar max-md:hidden" ref={navRef}>
 
-        <div onClick={handleOpen} className="hidden max-md:flex">
+        <div onClick={handleOpen} className="hidden max-md:flex px-2">
           Close
         </div>
 

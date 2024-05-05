@@ -15,7 +15,7 @@ export default function Comment({ item, post, comments }) {
 
   return (
     <div className="w-full border-2 border-slate-500 rounded px-6 py-4">
-      <p className="text-xl ">
+      <p className="text-xl max-md:text-base ">
         {item.comment}
       </p>
       <p className="font-semibold">

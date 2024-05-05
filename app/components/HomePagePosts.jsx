@@ -11,7 +11,7 @@ export default function Entry({ item }) {
   const userSession = session?.data?.user;
 
   return (
-    <form action={DeleteDataAction} className="w-[40vw] max-md:w-[70vw] border-2 border-slate-400 rounded py-2 px-4 flex justify-between mb-2 max-md:mb-4 gap-2">
+    <form action={DeleteDataAction} className="w-[40vw] max-md:w-[80vw] border-2 border-slate-400 rounded py-2 px-4 flex justify-between mb-2 max-md:mb-4 gap-2">
       <div>
 
         <div className="flex justify-between">
